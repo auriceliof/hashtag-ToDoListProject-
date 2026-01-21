@@ -7,7 +7,7 @@ function App() {
     <div className="container">
       <h1 className="app-title">Lista de Tarefas</h1>
       {/* Componente - Input Botão */}
-      <AddTodo/>
+      <AddTodo onAddTodo={() => {}}/>
       {/* Componente - Lista de componentes */}
     </div>
   );
