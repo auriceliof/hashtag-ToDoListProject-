@@ -2,6 +2,14 @@ import React from "react";
 import { TodoItem } from "./TodoItem";
 
 export function TodoList({ todos, onToggleTodo, onDeleteTodo }) {
+  if (todos.length === 0) {
+    return (
+      <div className="todo-list">
+        <p className="empty-message">Nenhuma tarefa adicionada ainda!</p>
+      </div>
+    );
+  }
+
   return (
     <div className="todo-list">
       {todos.map((todo) => (

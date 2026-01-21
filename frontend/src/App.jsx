@@ -19,6 +19,16 @@ function App() {
     setTodos([...todos, newTodo]);
   };
 
+ const deleteTodo = (id) => {
+  setTodos(todos.filter((todo) => todo.id !== id));
+ }
+
+ const toggleTodo = (id) => {
+  setTodos(
+    todos.map((todo) => todo.id === id ? {...todo, completed: !todo.completed} : todo)
+  )
+ }
+
   return (
     <div className="container">
       <h1 className="app-title">Lista de Tarefas</h1>
@@ -26,7 +36,7 @@ function App() {
       <AddTodo onAddTodo={addTodo} />
       
       {/* Componente - Lista de componentes */}
-      <TodoList todos={todos}/>
+      <TodoList todos={todos} onDeleteTodo={deleteTodo} onToggleTodo={toggleTodo}/>
     </div>
   );
 }
